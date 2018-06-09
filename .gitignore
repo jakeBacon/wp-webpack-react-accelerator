@@ -1,2 +1,8 @@
 node_modules/
-build/
+build/fonts/
+build/images/
+build/style.css
+build/style.css.map
+build/bundle.js
+build/bundle.js.map
+npm-debug.log
