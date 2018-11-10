@@ -13,12 +13,19 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'build'),
-    publicPath: dist,
     filename: "bundle.js"
   },
 
+  /*
+    In order to access the webpack dev server on a mobile device,
+    find your computer's address on the network. In terminal, 
+    type ifconfig and look for the en1 section or the one 
+    with something like inet 192.168.1.111 */
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    open: true,
+    host: '0.0.0.0',
+    public: 'localhost:8080'
   },
 
   devtool: devMode ? 'source-maps' : false,
