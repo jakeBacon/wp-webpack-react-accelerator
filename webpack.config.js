@@ -69,12 +69,6 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
-            options: {
-              minimize: {
-                safe: true
-              },
-              sourceMap: devMode ? true : false
-            }
           },
           {
             loader: "postcss-loader",
@@ -128,9 +122,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
-    new CleanWebpackPlugin([
-      "build"
-    ]),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['build']
+    }),
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",
     }),
