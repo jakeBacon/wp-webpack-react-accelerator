@@ -4,8 +4,8 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const autoprefixer = require("autoprefixer");
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require("path");
+const webpack = require('webpack');
 
-const dist = "/";
 const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
@@ -13,14 +13,27 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: "bundle.js"
+    filename: "[name].[contenthash].js"
+  },
+
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
   },
 
   devServer: {
     historyApiFallback: true,
     open: true,
-    host: '0.0.0.0',
-    useLocalIp: true,
+    host: 'localhost', // If useLocalIp is set to true, use host '0.0.0.0'
+    useLocalIp: false, 
     overlay: true,
   },
 
@@ -113,21 +126,19 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './build/index.html',
-      inject: false
+      template: './src/index.html',
     }),
     new CleanWebpackPlugin([
-      "build/images",
-      "build/fonts",
-      "build/*.map",
+      "build"
     ]),
     new MiniCssExtractPlugin({
-      filename: "style.css",
+      filename: "[name].[contenthash].css",
     }),
     new StyleLintPlugin({
       context: "src",
       files: "**/*.scss",
       syntax: "scss",
-    })
+    }),
+    new webpack.HashedModuleIdsPlugin()
   ],
 };
