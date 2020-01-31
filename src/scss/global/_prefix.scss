@@ -1,0 +1,33 @@
+// Box Sizing
+@mixin box-sizing($args) {
+  box-sizing: $args;
+}
+
+@mixin border-box(){
+  @include box-sizing(border-box);
+}
+
+@mixin content-box(){
+  @include box-sizing(content-box);
+}
+
+// Flexbox
+@mixin flexbox() {
+  display: flex;
+}
+
+@mixin flex($values) {
+  flex: $values;
+}
+
+@mixin order($val) {
+  order: $val;
+}
+
+@mixin align($align) {
+  align-items: $align;
+}
+
+@mixin justify-content($val) {
+  justify-content: $val;
+}

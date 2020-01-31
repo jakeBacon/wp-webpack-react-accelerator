@@ -1,0 +1,41 @@
+html {
+ 	box-sizing: border-box;
+ 	font-weight: normal;
+ 	transition: all $global-animation-duration ease-in-out;
+}
+
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	margin: 0;
+	background-color: $color-white;
+	font-family: $base-font-family;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+ul,
+ol {
+	padding-left: 30px;
+}
+
+img {
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+
+	// Gets rid of tap active state
+	-webkit-tap-highlight-color: transparent;
+
+	&:focus {
+		outline: none;
+	}
+}

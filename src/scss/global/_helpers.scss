@@ -1,0 +1,215 @@
+/*********************
+  Media Query Classes
+**********************/
+.hide-on-small-only, .hide-on-small-and-down {
+  @media #{$small-and-down} {
+    display: none !important; /* stylelint-disable-line declaration-no-important */
+  }
+}
+
+.hide-on-medium-and-down {
+  @media #{$medium-and-down} {
+    display: none !important; /* stylelint-disable-line declaration-no-important */
+  }
+}
+
+.hide-on-medium-and-up {
+  @media #{$medium-and-up} {
+    display: none !important; /* stylelint-disable-line declaration-no-important */
+  }
+}
+
+.hide-on-medium-only {
+  @media only screen and (min-width: $small-screen) and (max-width: $medium-screen) {
+    display: none !important; /* stylelint-disable-line declaration-no-important */
+  }
+}
+
+.hide-on-large-only {
+  @media #{$large-and-up} {
+    display: none !important; /* stylelint-disable-line declaration-no-important */
+  }
+}
+
+.show-on-large {
+  @media #{$large-and-up} {
+    display: initial !important; /* stylelint-disable-line declaration-no-important */
+  }
+}
+
+.show-on-medium {
+  @media only screen and (min-width: $small-screen) and (max-width: $medium-screen) {
+    display: initial !important; /* stylelint-disable-line declaration-no-important */
+  }
+}
+
+.show-on-small {
+  @media #{$small-and-down} {
+    display: initial !important; /* stylelint-disable-line declaration-no-important */
+  }
+}
+
+.show-on-medium-and-up {
+  @media #{$medium-and-up} {
+    display: initial !important; /* stylelint-disable-line declaration-no-important */
+  }
+}
+
+.show-on-medium-and-down {
+  @media #{$medium-and-down} {
+    display: initial !important; /* stylelint-disable-line declaration-no-important */
+  }
+}
+
+// Center text on mobile
+.center-on-small-only {
+  @media #{$small-and-down} {
+    text-align: center;
+  }
+}
+
+/*********************
+    Global helpers
+**********************/
+
+.hide {
+  display: none !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.no-visibility {
+  visibility: hidden;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+// Text Align
+.left-align {
+  text-align: left;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.center, .center-align {
+  text-align: center;
+}
+
+.left {
+  float: left !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.right {
+  float: right !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.titanic {
+  float: none !important; /* stylelint-disable-line declaration-no-important */
+}
+
+// No Text Select
+.no-select {
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.truncate {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.no-padding {
+  padding: 0 !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.no-margin {
+  margin: 0 !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.no-marginbottom {
+  margin-bottom: 0 !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.margin--small-top {
+  margin-top: 10px;
+
+  @media #{$medium-and-up} {
+    margin-top: 0;
+  }
+}
+
+// Positioning
+.valign-wrapper {
+  @include flexbox();
+  @include align(center);
+
+  .row {
+    flex: 1;
+  }
+
+  .valign {
+    display: block;
+  }
+}
+
+.clearfix {
+  clear: both;
+}
+
+// Text styles
+.text-normal {
+  font-weight: 400;
+}
+
+.text-light {
+  font-weight: 300;
+}
+
+// Animations
+@keyframes fade-in-up {
+
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animation {
+
+  &__fade-in-up {
+    animation-name: fade-in-up;
+    animation-duration: 350ms;
+    animation-delay: 200ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+  }
+}
+
+.visuallyhidden {
+  clip: rect(1px 1px 1px 1px);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  padding: 0;
+}
