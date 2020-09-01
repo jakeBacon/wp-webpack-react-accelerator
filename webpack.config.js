@@ -8,7 +8,7 @@ const path = require("path");
 
 module.exports = (env, argv) => {
   const devMode = argv.mode === 'development';
-  const dist = devMode ? '/' : '/wp-content/themes/example/';
+  const dist = devMode ? '/' : '/wordpress/wp-content/themes/underscores/';
   const envKeys = Object.keys(env).reduce((prev, next) => {
     prev[`process.env.${next}`] = JSON.stringify(env[next]);
     return prev;
@@ -18,7 +18,7 @@ module.exports = (env, argv) => {
     entry: "./src/js/index.js",
 
     output: {
-      path: path.resolve(__dirname, "wp-content/themes/example"),
+      path: path.resolve(__dirname, "wordpress/wp-content/themes/underscores"),
       publicPath: dist,
       filename: "js/[name].[contenthash].js",
       chunkFilename: "js/[name].[contenthash].js",
