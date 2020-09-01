@@ -1,8 +1,4 @@
 node_modules/
-build/fonts/
-build/images/
-build/*.css
-build/*.js
-build/*.map
+build/
 yarn.lock
 package-lock.json
